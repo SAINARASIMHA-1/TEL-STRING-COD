@@ -1,0 +1,383 @@
+Assignment 3 :-         Name:- Khanijam Venkata Sai Narasimha Rao
+============================================================================
+
+1.   WAP to reverse a String.
+               Input: “iNeuron”
+               Output: “norueNi”
+
+code:-
+---------
+
+public class String1 
+{
+	public static void main(String[] args) 
+	{
+		String a="iNeuron";
+		String b="";
+		for(int i=a.length()-1;i>=0;i--)
+		{
+			b=b+a.charAt(i);
+			
+		}
+		System.out.println(b);
+	}
+}
+
+
+
+Output:-
+------------
+
+                        norueNi
+
+========================================================================
+
+2.    WAP to reverse a sentence while preserving the position.
+                Input : “Think Twice”
+               Output : “kniht eciwt”
+
+code:-
+--------
+
+public class String2 {
+
+	public static void main(String[] args) 
+	{
+		String a="Think Twice";
+		a=a.toLowerCase();
+		a=" "+a;
+		String word="";
+		String c[]=new String[2];
+		int len=0;
+		
+			for(int i=a.length()-1;i>=0;i--)
+			{
+				if(a.charAt(i)!=' ')
+				{
+					word=word+a.charAt(i);
+				}
+				else
+				{
+					c[len]=word;
+					len++;
+					word="";
+				}
+			}
+			
+		for(int i=len-1;i>=0;i--)
+		{
+			System.out.print(c[i]+" ");
+		}
+	
+	}
+
+}
+
+
+
+Output:-
+-----------
+
+       kniht eciwt
+
+=======================================================
+
+ 3. WAP to check if the String is Anagram or not.
+
+code:-
+---------
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class String3 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first name: ");
+		String a=sc.nextLine();
+		System.out.println("Enter the second name: ");
+		String b=sc.nextLine();
+                 a=a.toLowerCase();
+                 b=b.toLowerCase();  
+		char []ch1=a.toCharArray();
+		char []ch2=b.toCharArray();
+		Arrays.sort(ch1);
+		Arrays.sort(ch2);
+		
+		boolean equal=true;
+		if(ch1.length==ch2.length)
+		{
+			for(int i=0;i<ch1.length;i++)
+			{
+				for(int j=i+1;j<ch2.length;j++)
+				{
+					if(ch1[i]!=ch2[i])
+					{
+						equal=false;
+					}
+				}
+			}
+			if(equal)
+			{
+				System.out.println("Both the strings are anagram");
+			}
+			else
+			{
+				System.out.println("Both the strings are not anagram");
+			}
+		}
+		else
+		{
+			System.out.println("Both the strings are not anagram");
+		}	
+	}
+
+}
+
+
+Output:-
+-----------
+
+Enter the first name: 
+sai
+Enter the second name: 
+ias
+
+Both the strings are anagram
+
+===============================================================
+
+
+4. WAP to check if the String is a Pangram or not.
+
+code:-
+--------
+
+import java.util.Scanner;
+
+public class String4 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name: ");
+		String a=sc.nextLine();
+		a=a.toLowerCase();
+		int freq[]=new int[26];		
+		for(int i=0;i<a.length();i++)
+		{
+			if(a.charAt(i)!=' ')
+			{
+				freq[a.charAt(i)-'a']++;
+			}
+		}
+		int temp=0;
+		for(int i=0;i<26;i++)
+		{
+			if(freq[i]==0)
+			{
+				temp=1;
+				break;
+			}
+		}
+		if(temp==1)
+		{
+			System.out.println("not panagram");
+		}
+		else
+		{
+			System.out.println("panagram");
+		}
+
+	}
+
+}
+
+Output:-
+----------
+
+Enter the name:
+
+abcdefghijklmnopqrstuvwxyz
+
+panagram
+
+=======================================================
+
+5. WAP to print repeatedly occurring characters in the given String.
+
+code:-
+---------
+
+import java.util.Scanner;
+
+public class String5 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name: ");
+		String a=sc.nextLine();
+                 a=a.toLowerCase();
+		char ch[]=a.toCharArray();
+		int count=0;
+		for(int i=0;i<ch.length;i++)
+		{
+			count=1;
+			for(int j=i+1;j<ch.length;j++)
+			{
+				if(ch[i]==ch[j]&&ch[j]!=' '&&ch[j]!='0')
+				{
+					count++;
+					ch[j]='0';
+				}
+			}
+			if(count>1&&ch[i]!='0')
+			{
+				System.out.println(ch[i]);
+			}
+		}
+	}
+
+}
+
+Output:-
+------------
+
+Enter the name:
+
+occuring characters
+
+c
+r
+a
+=======================================================
+
+6. WAP to sort a String Alphabetically.
+
+code:-
+---------
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class String6 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name: ");
+		String a=sc.nextLine();
+		a=a.toLowerCase();
+		char ch[]=a.toCharArray();
+		Arrays.sort(ch);
+		for(int i=0;i<ch.length;i++)
+		{
+			System.out.print(ch[i]);
+		}
+	}
+
+}
+
+
+Output:-
+------------
+
+Enter the name: 
+
+alphabetical
+
+aaabcehillpt
+
+=======================================================
+
+
+7. WAP to count the number of Vowels and Consonants of a String value.
+
+code:-
+---------
+
+import java.util.Scanner;
+
+public class String7 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name: ");
+		String a=sc.nextLine();
+		a=a.toLowerCase();
+		int vCount=0,cCount=0;
+		for(int i=0;i<a.length();i++)
+		{
+			if(a.charAt(i)=='a'||a.charAt(i)=='e'||a.charAt(i)=='i'||a.charAt(i)=='o'||a.charAt(i)=='u'&&a.charAt(i)!=' ')
+			{
+				vCount++;
+			}
+			else if(a.charAt(i)>'a'||a.charAt(i)<='z'&&a.charAt(i)!=' ')
+			{
+				cCount++;
+			}
+		}
+		System.out.println("No of vowels present in the name: "+vCount);
+		System.out.println("No of consonants present in the name: "+cCount);
+
+	}
+
+}
+
+
+
+Output:-
+------------
+
+Enter the name:
+
+vowels and consonants
+
+No of vowels present in the name: 6
+
+No of consonants present in the name: 13
+
+=======================================================
+
+8. WAP to count number of special characters.
+
+code:-
+---------
+
+import java.util.Scanner;
+
+public class String8 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name: ");
+		String a=sc.nextLine();
+		a=a.toLowerCase();
+		int spChars=0;
+		for(int i=0;i<a.length();i++)
+		{
+			if(a.charAt(i)=='~'||a.charAt(i)=='`'||a.charAt(i)=='!'||a.charAt(i)=='@'||a.charAt(i)=='#'||a.charAt(i)=='$'||a.charAt(i)=='%'||a.charAt(i)=='^'||a.charAt(i)=='&'||a.charAt(i)=='*'||a.charAt(i)=='('||a.charAt(i)==')'||a.charAt(i)=='-'||a.charAt(i)=='_'||a.charAt(i)=='+'||a.charAt(i)=='='||a.charAt(i)=='{'||a.charAt(i)=='}'||a.charAt(i)=='['||a.charAt(i)==']'||a.charAt(i)==':'||a.charAt(i)=='|'||a.charAt(i)=='/'||a.charAt(i)==';'||a.charAt(i)=='"'||a.charAt(i)=='<'||a.charAt(i)=='>'||a.charAt(i)==','||a.charAt(i)=='.'||a.charAt(i)=='?'||a.charAt(i)==' ')
+			{
+				spChars++;
+			}
+		}
+		System.out.println("Total number of special characters: "+spChars);
+
+	}
+
+}
+
+
+Output:-
+-------------
+
+Enter the name:
+ 
+No.Of.Special-Characters
+
+Total number of special characters: 3
+
